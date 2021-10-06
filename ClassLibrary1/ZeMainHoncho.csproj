@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net6.0-ios;net6.0-android</TargetFrameworks>
+		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('android'))">21</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('ios'))">10</SupportedOSPlatformVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+	<ItemGroup Condition=" '$(TargetPlatformIdentifier)' == 'android' ">
+		<ProjectReference Include="..\AndroidLib1\AndroidLib1.csproj" />
+		<ProjectReference Include="..\MultiAndroidLib1\MultiAndroidLib1.csproj" />
+	</ItemGroup>
+	<ItemGroup Condition=" '$(TargetPlatformIdentifier)' == 'ios' ">
+		<ProjectReference Include="..\iOSLib1\iOSLib1.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ClassLibrary2\Net6Lib.csproj" />
+	</ItemGroup>
+</Project>
